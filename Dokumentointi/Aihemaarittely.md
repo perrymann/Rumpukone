@@ -1,4 +1,4 @@
-##Aihemaarittely
+##Aihemäärittely
 
 Projektissa toteutetaan ohjelma, joka mahdollistaa erilaisten rumpukomppien luomisen ja toistamisen. Ohjelman käyttäjä voi ohjelmoida käyttöliittymässä tietyn mittaisen tahdin sisälle rumpujen ja symbaalien iskut, jotka halutaan mukaan rumpukomppiin. Käyttäjä voi määritellä kuinka monta kertaa ohjelmoitu tahti toistetaan. Käyttäjä voi myös määritellä rumpukompin tempon eli nopeuden. 
 
