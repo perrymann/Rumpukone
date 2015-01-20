@@ -4,7 +4,12 @@
  * and open the template in the editor.
  */
 
-package rumpukone.mavenproject;
+package DrumMachine.main;
+
+import DrumMachine.domain.*;
+import DrumMachine.ui.*;
+import jm.music.data.Note;
+import jm.util.Play;
 
 /**
  *
@@ -12,4 +17,9 @@ package rumpukone.mavenproject;
  */
 public class Main {
     
+    public static void main(String[] args) {
+        
+        Machine sovelluslogiikka = new Machine();    
+        Kayttoliittyma kali = new Kayttoliittyma(sovelluslogiikka);
+    }
 }
