@@ -45,7 +45,7 @@ public class Machine {
     }
     
     public void addDrumPhraseIntoDrumbeat () {
-        this.rumpukomppi.addPhrase(this.rumpufraasi.getPhrase());
+        this.rumpukomppi.addDrumPhrase(this.rumpufraasi.getPhrase());
     }
     
     // Luodaan DrumPhrase (= yksittäisen rummun "stemma" ja Hit (yksittäinen isku)
@@ -61,7 +61,7 @@ public class Machine {
     // Lisätään iskuja DrumPhraseen
     
     public void addHitIntoPhrase() {
-        this.rumpufraasi.addNote(this.isku);
+        this.rumpufraasi.addHit(this.isku);
     }
     
     public void defineLooping(int loop) {

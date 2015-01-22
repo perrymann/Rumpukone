@@ -12,11 +12,14 @@ public class Drumbeat {
         this.kompinOsa = new Part("nimi", 0, 9);
     }
     
-    public void addPhrase(Phrase phrase) {
+    public void addDrumPhrase(Phrase phrase) {
         kompinOsa.add(phrase);
     }
     
     public Part getBeat() {
         return kompinOsa;
+    }
+    public String getNimi() {
+        return nimi;
     }
 }

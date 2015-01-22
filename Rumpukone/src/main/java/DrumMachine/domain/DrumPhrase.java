@@ -17,7 +17,7 @@ public class DrumPhrase {
         return fraasi;
     }
     
-    public void addNote(Hit isku) {
+    public void addHit(Hit isku) {
         this.fraasi.add(isku.getNuotti());
     }
     
