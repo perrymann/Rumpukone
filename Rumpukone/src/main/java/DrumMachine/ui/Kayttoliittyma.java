@@ -69,7 +69,6 @@ public class Kayttoliittyma {
         }
         System.out.println("");
         solo.addDrumbeatIntoScore();
-        System.out.println(solo.getScore());
         System.out.println("Soitetaan komppi");
         solo.playScore();
     }

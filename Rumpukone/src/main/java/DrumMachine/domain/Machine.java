@@ -12,7 +12,7 @@ public class Machine {
     private Drumbeat rumpukomppi;
     private Hit isku;
     private Score biisi;
-    private Phrase [] fraasilista;
+//    private Phrase [] fraasilista; 
     
     public Machine() {}
     
@@ -45,7 +45,7 @@ public class Machine {
     }
     
     public void addDrumPhraseIntoDrumbeat () {
-        this.rumpukomppi.addPrase(this.rumpufraasi.getPhrase());
+        this.rumpukomppi.addPhrase(this.rumpufraasi.getPhrase());
     }
     
     // Luodaan DrumPhrase (= yksittäisen rummun "stemma" ja Hit (yksittäinen isku)

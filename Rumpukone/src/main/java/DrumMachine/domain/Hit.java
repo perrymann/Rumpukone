@@ -52,9 +52,9 @@ public final class Hit {
         return this.nuotti.getFrequency() + ", " + this.nuotti.getRhythmValue() + ", " + this.nuotti.getDynamic();
     }
     
-    private int dynamize() {
-        Random x = new Random(10);
-        int volume = 110 - x.nextInt();
-        return volume;
-    }
+//   ei tee vielä mitään...
+//    private int dynamize() {
+//        Random x = new Random();
+//       
+//    }
 }
