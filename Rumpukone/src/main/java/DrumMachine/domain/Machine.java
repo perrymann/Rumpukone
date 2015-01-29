@@ -11,27 +11,40 @@ public class Machine {
     private DrumPhrase rumpufraasi;
     private Drumbeat rumpukomppi;
     private Hit isku;
-    private Score biisi;
+    private Song biisi;
+    private ReaderPlayer rp = new ReaderPlayer();
 //    private Phrase [] fraasilista; 
+
+    public Machine() {
+    }
     
-    public Machine() {}
+    // komennot kirjoitus/toisto-oliolle;
     
+    public void writeFile(String name) {
+       rp.writeToFile(getSong(),name);
+    }
+    
+    public void playSong(String name) {
+        rp.playSavedFile(name);
+    }
+    
+
     // Luodaan pohja biisille
     
-    public void createScore(String nimi) {
-        this.biisi = new Score(nimi);
+    public void createSong(String nimi) {
+        this.biisi = new Song(nimi);
     }
     
-    public Score getScore() {
-        return this.biisi;
+    public Score getSong() {
+        return this.biisi.getSong2();
     }
     
-    public void setTempoForScore(double tempo) {
-        this.biisi.setTempo(tempo);
+    public void setTempoForSong(double tempo) {
+        this.biisi.setTempoForSong2(tempo);
     }
     
-    public void playScore() {
-        Play.midi(this.biisi);
+    public void playSong() {
+        this.biisi.play();
     }
     
     // Luodaan uusi osa (eli rumpukomppi) ja lisätään se biisiin
@@ -41,11 +54,17 @@ public class Machine {
     }
     
     public void addDrumbeatIntoScore() {
-        this.biisi.add(rumpukomppi.getBeat());
+        this.biisi.addDrumbeat(rumpukomppi.getBeat());
     }
     
     public void addDrumPhraseIntoDrumbeat () {
         this.rumpukomppi.addDrumPhrase(this.rumpufraasi.getPhrase());
+    }
+   
+    // testataan rumpukomppia 
+    
+    public void testDrumBeat() {
+        this.rumpukomppi.testDrumbeat();
     }
     
     // Luodaan DrumPhrase (= yksittäisen rummun "stemma" ja Hit (yksittäinen isku)

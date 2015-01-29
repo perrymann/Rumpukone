@@ -37,6 +37,15 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
+                <configuration>
+                    <instrumentation>
+                        <includes>
+                            <include>DrumMachine.domain/**/*.class</include>
+                            <include>DrumMachine.main/**/*.class</include>
+                            <include>DrumMachine.ui/**/*.class</include>
+                        </includes>
+                    </instrumentation>
+                </configuration>
                 <version>2.6</version>
             </plugin>
             <plugin>

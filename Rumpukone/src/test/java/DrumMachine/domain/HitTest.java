@@ -32,6 +32,17 @@ public class HitTest {
        assertEquals(1.0, this.hit.getNuotti().getRhythmValue(), 0);
     }
     
+    @Test 
+    public void konstruktotiAsettaaDynamiikanOikein() {
+        
+    }
+    
+    @Test 
+    public void dynamizeToimiiOikein() {
+        int x = this.hit.dynamize();
+        assertEquals(true, x >= 85 && x <= 125);
+    }
+    
     @Test
     public void getInstrumentPalauttaaOikeanArvon(){
         for (int z = 0; z < 5; z++) {
@@ -52,4 +63,6 @@ public class HitTest {
             else if (apu == 3) assertEquals(0.25, this.hit.getRhythmValue(apu), 0);
         }
     }
+    
+    
 }

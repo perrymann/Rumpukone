@@ -8,7 +8,7 @@ public final class Hit {
     private Note nuotti;
     
     public Hit(int instrument, int rhythmValue) {
-        this.nuotti = new Note(getInstrument(instrument), getRhythmValue(rhythmValue));
+        this.nuotti = new Note(getInstrument(instrument), getRhythmValue(rhythmValue), dynamize());
         
     }
     public int getInstrument(int instrument) {
@@ -52,9 +52,11 @@ public final class Hit {
         return this.nuotti.getFrequency() + ", " + this.nuotti.getRhythmValue() + ", " + this.nuotti.getDynamic();
     }
     
-//   ei tee vielä mitään...
-//    private int dynamize() {
-//        Random x = new Random();
-//       
-//    }
+
+    public int dynamize() {
+        return (int) (Math.random() * 45 + 80);
+                
+                
+              
+    }
 }

@@ -2,6 +2,7 @@
 package DrumMachine.domain;
 
 import jm.music.data.*;
+import jm.util.Play;
 
 public class Drumbeat {
     private String nimi;
@@ -21,5 +22,9 @@ public class Drumbeat {
     }
     public String getNimi() {
         return nimi;
+    }
+    
+    public void testDrumbeat () {
+        Play.midi(kompinOsa);
     }
 }
