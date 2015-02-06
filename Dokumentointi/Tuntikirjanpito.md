@@ -9,3 +9,7 @@
 *26.1.2015:* 2 h, Graafisen käyttöliittymän tutkimista, toiminnallisuuksien lisäämistä
 
 *29.1.2015:* 3 h, Uusien toimintojen lisäämistä. Graafisen käyttöliittymän tutkimista
+
+*3.2.2015:* 5 h, koodikatselmointia, logiikan ja testien lisäämistä, graafisen käyttöliittymän tekoa.
+
+*5.2.2015:* 3 h, Javadocseja ja Graafisen käyttöliittymän suunnittelua.

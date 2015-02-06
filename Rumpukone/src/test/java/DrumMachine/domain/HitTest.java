@@ -19,28 +19,25 @@ public class HitTest {
         hit = new Hit(4, 4);
     }
     
-    @After
-    public void tearDown() {
-    }
-    
     @Test
     public void konstruktoriAsettaaSoittimenOikein(){
-        assertEquals(42, this.hit.getNuotti().getPitch(), 0);
+        assertEquals(42, this.hit.getHit().getPitch(), 0);
     }
     @Test
     public void konstruktoriAsettaaAikaArvonOikein() {
-       assertEquals(1.0, this.hit.getNuotti().getRhythmValue(), 0);
+       assertEquals(1.0, this.hit.getHit().getRhythmValue(), 0);
     }
     
     @Test 
     public void konstruktotiAsettaaDynamiikanOikein() {
-        
+        int x = this.hit.dynamize();
+        assertEquals(true, this.hit.getDynamics() >= 80 && this.hit.getDynamics() <= 125);
     }
     
     @Test 
     public void dynamizeToimiiOikein() {
         int x = this.hit.dynamize();
-        assertEquals(true, x >= 85 && x <= 125);
+        assertEquals(true, x >= 80 && x <= 125);
     }
     
     @Test
@@ -58,9 +55,11 @@ public class HitTest {
     public void getRhythmValuePalauttaaOikeanArvon(){
         for (int i = 2; i < 5; i++) {
             int apu = (int) Math.pow(2, i);    
-            if (apu == 1) assertEquals(1.0, this.hit.getRhythmValue(apu), 0);
-            else if (apu == 2) assertEquals(0.5, this.hit.getRhythmValue(apu), 0);
-            else if (apu == 3) assertEquals(0.25, this.hit.getRhythmValue(apu), 0);
+            if (apu == 4) assertEquals(1.0, this.hit.getRhythmValue(apu), 0);
+            else if (apu == 8) assertEquals(0.5, this.hit.getRhythmValue(apu), 0);
+            else if (apu == 16) assertEquals(0.25, this.hit.getRhythmValue(apu), 0);
+            else {
+            }
         }
     }
     

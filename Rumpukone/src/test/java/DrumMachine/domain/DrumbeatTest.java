@@ -21,26 +21,14 @@ public class DrumbeatTest {
     public DrumbeatTest() {
     }
     
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
     @Before
     public void setUp() {
         drumbeat = new Drumbeat("Bussipysäkillä");
     }
     
-    @After
-    public void tearDown() {
-    }
-    
     @Test
     public void konstruktoriAsettaaNimenOikein() {
-        assertEquals("Bussipysäkillä", this.drumbeat.getNimi());
+        assertEquals("Bussipysäkillä", this.drumbeat.getName());
     }
     
     @Test
@@ -52,6 +40,7 @@ public class DrumbeatTest {
     public void addDrumPhraseLisaaFraasin() {
         Phrase x = new Phrase();
         this.drumbeat.addDrumPhrase(x);
-        assertEquals(1, this.drumbeat.getBeat().getSize());
+        assertTrue(1 == this.drumbeat.getBeat().getSize());
     }
+   
 }

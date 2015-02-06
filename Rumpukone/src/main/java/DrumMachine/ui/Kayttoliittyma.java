@@ -76,16 +76,18 @@ public class Kayttoliittyma {
         String nimi = lukija.nextLine();
         this.solo.createSong(nimi);
         System.out.println("");
-        System.out.print("Määritä tempo: ");
-        double tempo = Double.parseDouble(lukija.nextLine());
-        System.out.println(tempo);
-        solo.setTempoForSong(tempo);
+        
         System.out.println("Biisi alustettu ja tempo määritelty.");
     }
     
     public void luoKomppi() {
         this.solo.createDrumbeat("Osa1");
         System.out.println("Komppi alustettu");
+        System.out.print("Määritä tempo: ");
+        double tempo = Double.parseDouble(lukija.nextLine());
+        System.out.println(tempo);
+        solo.setTempoForDrumbeat(tempo);
+        
     }
     
     public void luoFraasi() {
@@ -93,9 +95,6 @@ public class Kayttoliittyma {
             System.out.println("Lisätään nuotit");
             this.solo.createDrumPhrase();
             luoNuotti();
-            System.out.println("Ok, fraasi on valmis. Kuinka monta kertaa loopataan?");
-            int loops = Integer.parseInt(lukija.nextLine());
-            solo.defineLooping(loops);
             lisaaFraasiRumpukomppiin();
             System.out.println("Luodaanko uusi fraasi? joo tai ei");
             String uusi = lukija.nextLine(); 
@@ -132,7 +131,10 @@ public class Kayttoliittyma {
     }        
                     
     public void lisaaKomppiBiisiin () {
-         solo.addDrumbeatIntoScore();
+        System.out.println("Ok, komppi on valmis. Kuinka monta kertaa loopataan?");
+        int loops = Integer.parseInt(lukija.nextLine());
+        solo.defineLooping(loops);    
+        solo.addDrumbeatIntoSong();
         System.out.println("Komppi lisätty biisiin.");
         }
     

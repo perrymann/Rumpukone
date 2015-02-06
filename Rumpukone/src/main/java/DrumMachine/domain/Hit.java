@@ -1,16 +1,29 @@
 
 package DrumMachine.domain;
 
-import java.util.Random;
 import jm.music.data.*;
 
+/**
+ * @author pnikande
+ * 
+ * Luokassa Hit luodaan yksittäinen rummun tai symbaalin isku. Luokka sisältää oliomuuttujana Jmusicin 
+ * Note-olion.
+ */
+
 public final class Hit {
-    private Note nuotti;
+    private Note hit;
     
     public Hit(int instrument, int rhythmValue) {
-        this.nuotti = new Note(getInstrument(instrument), getRhythmValue(rhythmValue), dynamize());
+        this.hit = new Note(getInstrument(instrument), getRhythmValue(rhythmValue), dynamize());
         
     }
+    /**
+     * Metodi määrittää mikä midi-instrumentti valitaan syötteen perusteella.
+     * 
+     * @param instrument
+     * @return midi-instrumenttia vastaava arvo
+     */    
+
     public int getInstrument(int instrument) {
         if (instrument == 1) {
             instrument = 35; //Bassdrum
@@ -29,34 +42,56 @@ public final class Hit {
         return instrument;
     }
     
+    /**
+     * Metodi määrittää iskulle aika-arvon syötteen perusteella ja muuttaa sen liukuluvuksi.
+     * @param rhythmValue
+     * @return Jmusicin arvoja vastaava liukuluku
+     */
+    
     public double getRhythmValue(int rhythmValue) {
         double x = rhythmValue;
         
         if (x == 4) {
             x = 1.0;
         }
-        if (x == 8) {
+        else if (x == 8) {
             x = 0.5;
         }
-        if (x == 16) {
+        else if (x == 16) {
             x = 0.25;
         }
         return x;
     }
     
-    public Note getNuotti() {
-        return this.nuotti;
+    /**
+     * Metodi palauttaa Note-tyyppisen oliomuuttujan.
+     * @return Note
+     */
+    
+    public Note getHit() {
+        return this.hit;
+    }
+    
+    /**
+     * Metodi palauttaa Note-tyyppisen oliomuuttujan voimakkuuden arvon. 
+     * @return Note-tyyppisen muuttujan voimakkuus kokonaislukuna.
+     */
+    
+    public int getDynamics() {
+        return this.hit.getDynamic();
     }
     
     public String toString () {
-        return this.nuotti.getFrequency() + ", " + this.nuotti.getRhythmValue() + ", " + this.nuotti.getDynamic();
+        return this.hit.getFrequency() + ", " + this.hit.getRhythmValue() + ", " + this.hit.getDynamic();
     }
     
-
+    /**
+     * Metodi arpoo luotavalle Note-tyyppiselle oliomuuttujalle satunnaisen voimakkuusarvon. 
+     * @return Kokonaisluku väliltä 80-125.
+     */
+    
     public int dynamize() {
         return (int) (Math.random() * 45 + 80);
-                
-                
-              
+   
     }
 }

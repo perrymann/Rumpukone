@@ -53,12 +53,6 @@ public class DrumPhraseTest {
         assertEquals(1, this.drumPhrase.getPhrase().getSize());
     }
         
-    @Test
-    public void LooppausToimiiOikein() {
-        Hit hit = new Hit(4, 4);
-        this.drumPhrase.addHit(hit);
-        this.drumPhrase.loopPhrase(2);
-        assertEquals(2, this.drumPhrase.getPhrase().getSize());
-    }
+   
 
 }

@@ -6,8 +6,10 @@
 
 package DrumMachine.main;
 
+import DrumMachine.ui.UI;
 import DrumMachine.domain.*;
 import DrumMachine.ui.*;
+import javax.swing.SwingUtilities;
 import jm.music.data.Note;
 import jm.util.Play;
 
@@ -18,8 +20,11 @@ import jm.util.Play;
 public class Main {
     
     public static void main(String[] args) {
+        UI ui = new UI();
+        SwingUtilities.invokeLater(ui);
         
-        Machine sovelluslogiikka = new Machine();    
-        Kayttoliittyma kali = new Kayttoliittyma(sovelluslogiikka);
+      //  Machine sovelluslogiikka = new Machine();    
+      //  Kayttoliittyma kali = new Kayttoliittyma(sovelluslogiikka);
+        
     }
 }
