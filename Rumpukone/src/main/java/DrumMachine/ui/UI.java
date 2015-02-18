@@ -130,29 +130,28 @@ public class UI implements Runnable {
         JButton testBeat = new JButton("Testaa");
         JLabel looptext = new JLabel("Loopit:");
         JTextField lf = new JTextField();
-        JButton loopButton = new JButton("Aseta looppaus");
+       // JButton loopButton = new JButton("Aseta looppaus");
         JLabel tempoText = new JLabel("Tempo:");
         JTextField tempoField = new JTextField();
         //JButton tempoSetter = new JButton("Aseta tempo");
        
         
         ButtonListener x = new ButtonListener(machine, tf, newBeatButton, submit, 
-                testBeat, lf, loopButton, tempoField);
+                testBeat, lf, tempoField);
         newBeatButton.addActionListener(x);
         submit.addActionListener(x);
         testBeat.addActionListener(x);
         
         panel.add(hits);
-        panel.add(looptext);
         panel.add(tempoText);
         
         panel.add(tf);
-        panel.add(lf);
         panel.add(tempoField);
         
         panel.add(newBeatButton);
         
-        
+        panel.add(looptext);
+        panel.add(lf);
         
         panel.add(submit);
         panel.add(testBeat);

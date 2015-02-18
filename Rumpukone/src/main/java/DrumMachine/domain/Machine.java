@@ -65,21 +65,11 @@ public class Machine {
     /**
      * Metodi createDrumbeat(String nimi) luo uuden Drumbeat-luokan ilemntymän. 
      *  
+     * @param tempo asettaa tempon
      */
     
     public void createDrumbeat(int tempo) { //String nimi
         this.drumBeat = new Drumbeat(tempo);
-        
-    }
-    
-    /**
-     * Metodi setTempoForDrumbeat(double tempo) kutsuu Drumbeat-luokan metodia, joka asettaa rumpokompille tempon.
-     * @see setTempoForDrumbeat(tempo)
-     * 
-     */
-    
-    public void setTempoForDrumbeat(int tempo) { //double tempo, nyt kovakoodattu
-        this.drumBeat.setTempoForDrumbeat(tempo);
     }
     
     /**

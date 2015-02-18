@@ -13,21 +13,19 @@ public class ButtonListener implements ActionListener{
     private JButton submitBeat;
     private JButton test;
     private JTextField loopField;
-    private JButton loopSetter;
     private JTextField tempoField;
    
     
     // välivaihe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
     
     public ButtonListener(Machine machine, JTextField hitFieldLength, JButton newBeat, 
-            JButton submitBeat, JButton test, JTextField loopField, JButton loopSetter, JTextField tempoField) {
+            JButton submitBeat, JButton test, JTextField loopField, JTextField tempoField) {
         this.machine = machine;
         this.hitFieldLength = hitFieldLength;
         this.newBeat = newBeat;
         this.submitBeat = submitBeat;
         this.test = test;
         this.loopField = loopField;
-        this.loopSetter = loopSetter;
         this.tempoField = tempoField;
         
     }
@@ -44,6 +42,8 @@ public class ButtonListener implements ActionListener{
         if (ae.getSource().equals(this.submitBeat)) {
             machine.FinalizePhrases();
             machine.addDrumPhrasesIntoDrumbeat();
+            int loop = Integer.parseInt(loopField.getText());
+            machine.defineLooping(loop);
         }
         if (ae.getSource().equals(test)) {
             machine.testDrumBeat();
