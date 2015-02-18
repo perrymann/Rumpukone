@@ -104,7 +104,6 @@ public class UI implements Runnable {
         grid.setHgap(2);
         JPanel panel = new JPanel(grid);
         
-        
         for (int i = 0; i < 4; i++) {
             for (int x = 0; x < gridLength; x++) {
                 JCheckBox c = new JCheckBox();
@@ -117,11 +116,9 @@ public class UI implements Runnable {
     }
     
     private JPanel operatorButtons() {
-        GridLayout layout = new GridLayout(5, 3);
-        JPanel panel = new JPanel(layout);
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 20));
-       
-        
+        GridLayout grid = new GridLayout(4, 4);
+        JPanel panel = new JPanel(grid);
+        panel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 20));
         
         JButton newBeatButton= new JButton("Uusi rumpukomppi");
         JLabel hits = new JLabel("Iskut (1-16):");
@@ -130,11 +127,8 @@ public class UI implements Runnable {
         JButton testBeat = new JButton("Testaa");
         JLabel looptext = new JLabel("Loopit:");
         JTextField lf = new JTextField();
-       // JButton loopButton = new JButton("Aseta looppaus");
         JLabel tempoText = new JLabel("Tempo:");
         JTextField tempoField = new JTextField();
-        //JButton tempoSetter = new JButton("Aseta tempo");
-       
         
         ButtonListener x = new ButtonListener(machine, tf, newBeatButton, submit, 
                 testBeat, lf, tempoField);
@@ -143,18 +137,17 @@ public class UI implements Runnable {
         testBeat.addActionListener(x);
         
         panel.add(hits);
-        panel.add(tempoText);
-        
         panel.add(tf);
+        panel.add(new JLabel(""));
+        panel.add(tempoText);
         panel.add(tempoField);
-        
         panel.add(newBeatButton);
         
         panel.add(looptext);
         panel.add(lf);
-        
         panel.add(submit);
         panel.add(testBeat);
+        
         
         return panel;
         

@@ -4,13 +4,11 @@ package DrumMachine.domain;
 import java.util.ArrayList;
 import jm.music.data.*;
 
-
 /**
  * @author pnikande
  * Luokassa DrumPhrase luodaan fraasi, joka sisältää yksittäisen rummun ja symbaalin iskuja. Luokka sisältää 
- * oliomuuttujana JMusicin Phrase-olion.
+ * oliomuuttujana JMusicin Phrase-olion. Phrase-oliot tallennetaan ArrayList-muuttujaan.
  */
-
 
 public class DrumPhrase {
     private Note [] bassDrum;
@@ -28,9 +26,14 @@ public class DrumPhrase {
         this.crash = new Note[length];
         this.snare = new Note[length];
         this.hihat = new Note[length];
-        
-        
     }
+    
+    /**
+     * Metodit lisää Note-olion Note-arrayhin position-parametrin määrättyyn indeksiin.
+     * 
+     * @param hit määrittää arrayhin lisättävän Note-olion.
+     * @param position määrittää arrayn indeksin, johon Note-olio lisätään.
+     */
     
     public void addBassDrumHitToList(Note hit, int position) {
         this.bassDrum [position] = hit;
@@ -48,10 +51,11 @@ public class DrumPhrase {
         this.hihat [position] = hit;
     }
     
-//    /**
-//     * Metodi lisää Hit-luokan luoman olion Note DrumPhrase-luokan luomaan Phrase-olioon.  
-//     * @param hit
-//     */
+    /**
+     * Metodi lisää Note-arrayt DrumPhrase-luokan luomaan Phrase-olioihin ja lisää ne ArrayList-muuttujaan.  
+     * 
+     * @return ArrayList<> sisältää eri rummuille varatut Phrase-oliot.
+     */
     
     public ArrayList<Phrase> finalizePhraseLists() {
         bd.addNoteList(bassDrum);
@@ -64,7 +68,6 @@ public class DrumPhrase {
         phraseList.add(cr);
         phraseList.add(hh);
        
-        
         return phraseList;
         
     }

@@ -9,7 +9,7 @@ import jm.util.Play;
  * @author pnikande
  * 
  * Luokassa Drumbeat luodaan yksittäinen rumpukomppi. Luokka sisältää oliomuuttujana JMusicin 
- * Part-olion.
+ * Part-olion. 
  */
 
 public class Drumbeat {
@@ -57,6 +57,7 @@ public class Drumbeat {
     
     /**
      * Metodi toistaa valmiin rumpukompin, esimerkiksi testausta varten.
+     * 
      */
     
     public void testDrumbeat () {
