@@ -9,6 +9,8 @@ import jm.util.Play;
  * @author pnikande
  * 
  * Luokassa Song luodaan kappaleen pohja. Song-olio sisältää luokkamuuttujana JMusicin Score-olion.
+ * Kappaleeseen tulevat rumpukompit (Drumbeat) tallennetaan ensiksi ArrayList-tyyppiseen oliomuuttujaan, 
+ * josta ne siirretään FinalizeSong()-metodissa JMusicin Score-olioon.
  */
 
 public class Song {

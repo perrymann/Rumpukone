@@ -13,3 +13,7 @@
 *3.2.2015:* 5 h, koodikatselmointia, logiikan ja testien lisäämistä, graafisen käyttöliittymän tekoa.
 
 *5.2.2015:* 3 h, Javadocseja ja Graafisen käyttöliittymän suunnittelua.
+
+*7.2.2015:* 2 h, Käyttöliittymän tekoa
+
+*15.2.2015:* 2 h, Käyttöliittymän tekoa, Javadocs

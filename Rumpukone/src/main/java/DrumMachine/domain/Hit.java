@@ -25,16 +25,16 @@ public final class Hit {
      */    
 
     public int getInstrument(int instrument) {
-        if (instrument == 1) {
+        if (instrument == 0) {
             instrument = 35; //Bassdrum
         }
-        else if (instrument == 2) {
+        else if (instrument == 1) {
             instrument = 36; //toinen Bass drum
         }
-        else if (instrument == 3) { // snare
+        else if (instrument == 2) { // snare
             instrument = 38;
         }
-        else if (instrument == 4) { // hi-hat 
+        else if (instrument == 3) { // hi-hat 
             instrument = 42;
         } else {
             instrument = -2147483648;

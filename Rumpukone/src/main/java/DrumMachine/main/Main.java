@@ -20,11 +20,11 @@ import jm.util.Play;
 public class Main {
     
     public static void main(String[] args) {
-        UI ui = new UI();
+        Machine sovelluslogiikka = new Machine(); 
+        UI ui = new UI(sovelluslogiikka);
         SwingUtilities.invokeLater(ui);
-        
-      //  Machine sovelluslogiikka = new Machine();    
-      //  Kayttoliittyma kali = new Kayttoliittyma(sovelluslogiikka);
+          
+      
         
     }
 }

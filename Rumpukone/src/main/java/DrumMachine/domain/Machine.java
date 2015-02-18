@@ -1,34 +1,50 @@
 
 package DrumMachine.domain;
 
-import jm.JMC;
-import jm.midi.*;
+import java.util.ArrayList;
 import jm.music.data.*;
-import jm.music.tools.*;
-import jm.util.*;
+
+/**
+ * @author pnikande
+ * 
+ * Machine-luokka luo muut domain-pakkauksessa olevat oliot ja vastaa sovelluslogiikasta. 
+ */
 
 public class Machine {
+    private int length;
     private DrumPhrase drumPhrase;
     private Drumbeat drumBeat;
     private Hit drumHit;
     private Song song;
-    private ReaderPlayer readerPlayer = new ReaderPlayer();
+    private final ReaderPlayer readerPlayer = new ReaderPlayer();
+    private ArrayList<Phrase> drumPhraseList;
  
 
     public Machine() {
     }
     
-    // komennot kirjoitus/toisto-oliolle;
+    /**
+     * Metodi writeFile(String name) kutsuu ReaderPlayer-luokan metodia,joka tallentaa Score-olion mid-tiedostona. 
+     * @param name 
+     */
     
     public void writeFile(String name) {
        readerPlayer.writeToFile(getSong(),name);
     }
     
+    /**
+     * Metodi playSong(String name) kutsuu ReaderPlayer-luoka metodia, joka toistaa tallennetun mid-tiedoston.
+     * @param name 
+     */
+    
     public void playSong(String name) {
         readerPlayer.playSavedFile(name);
     }
     
-    // Luodaan pohja biisille
+    /**
+     * Metodi createSong(String nimi) luo uuden Song-luokan ilmentymän.
+     * @param nimi
+    */
     
     public void createSong(String nimi) {
         this.song = new Song(nimi);
@@ -38,60 +54,120 @@ public class Machine {
         return this.song.getSong();
     }
     
+    /**
+     * Metodi playSong() kutsuu Song-luokan metodia, joka toistaa Score-muuttujan.
+     */
+    
     public void playSong() {
         this.song.play();
     }
     
-    // Luodaan uusi osa (eli rumpukomppi) 
+    /**
+     * Metodi createDrumbeat(String nimi) luo uuden Drumbeat-luokan ilemntymän. 
+     *  
+     */
     
-    public void createDrumbeat(String nimi) {
-        this.drumBeat = new Drumbeat(nimi);
+    public void createDrumbeat(int tempo) { //String nimi
+        this.drumBeat = new Drumbeat(tempo);
+        
     }
     
-    public void setTempoForDrumbeat(double tempo) {
+    /**
+     * Metodi setTempoForDrumbeat(double tempo) kutsuu Drumbeat-luokan metodia, joka asettaa rumpokompille tempon.
+     * @see setTempoForDrumbeat(tempo)
+     * 
+     */
+    
+    public void setTempoForDrumbeat(int tempo) { //double tempo, nyt kovakoodattu
         this.drumBeat.setTempoForDrumbeat(tempo);
     }
+    
+    /**
+     * Metodi defineLooping(int loop) kutsuu Drumbeat-luokan metodia, 
+     * joka määrittää kuinka monta kertaa rumpukomppi loopataan.
+     * @see loopDrumbeat(loop)
+     * @param loop 
+     */
     
     public void defineLooping(int loop) {
         this.drumBeat.loopDrumbeat(loop);
     }
     
-    // lisätään fraasi komppiin
+    /**
+     * Metodi addDrumPhraseIntoDrumbeat() kutsuu Drumbeat-luokan metodia, joka lisää fraasin rumpukomppiin.
+     */
     
-    public void addDrumPhraseIntoDrumbeat () {
-        this.drumBeat.addDrumPhrase(this.drumPhrase.getPhrase());
+    public void addDrumPhrasesIntoDrumbeat() {
+        for (Phrase x : drumPhraseList) {
+            this.drumBeat.addDrumPhrase(x);
+        }
     }
     
-    // Lisätään rumpukompit biisiin
+    /**
+     * Metodi addDrumbeatIntoSong() kutsuu Song-luokan metodia, joka lisää rumpukompin kappaleeseen.
+     * 
+     */
     
      public void addDrumbeatIntoSong() {
         this.song.addDrumbeat(drumBeat);
     }
     
+    /**
+     * Metodi testDrumBeat() kutsuu Drumbeat-luokan metodia, joka toistaa rumpukompin. 
+     */
      
-   
-    // testataan rumpukomppia 
-    
     public void testDrumBeat() {
         this.drumBeat.testDrumbeat();
+        
     }
     
-    // Luodaan DrumPhrase (= yksittäisen rummun "stemma" ja Hit (yksittäinen isku)
+    /////////////////////////////////////////////////////////////////////////
+    /**
+     * Metodi createDrumPhrase() luo uuden drumPhrase-luokan ilmentymän ja alustaa kaikki iskut tauoiksi.
+     * 
+     * @param x määrittää, kuinka monta iskua ilmentymään mahtuu.
+     */
     
-    public void createDrumPhrase () {
-        this.drumPhrase = new DrumPhrase();
+    public void FormatDrumPhrase(int x) {
+        this.length = x;
+        System.out.println(length);
+        this.drumPhrase = new DrumPhrase(length);
+        this.drumHit = new Hit(-1, 8);
+        for(int i = 0; i < 4; i++) {
+            for(int j = 0; j < length; j++) {
+                this.drumPhrase.addBassDrumHitToList(drumHit.getHit(), j);
+                this.drumPhrase.addSnareHitToList(drumHit.getHit(), j);
+                this.drumPhrase.addCrashHitToList(drumHit.getHit(), j);
+                this.drumPhrase.addHihatHitToList(drumHit.getHit(), j);
+            }
+        }
+       
     }
     
-    public void createHit(int instrument, int rhythmValue) {
-        this.drumHit = new Hit(instrument, rhythmValue);
+    /**
+     * Metodi createHit(int instrument, int rhythmValue) luo uuden Hit-luokan ilemntymän.
+     * @param instrument
+     * @param rhythmValue 
+     * @param row 
+     * @param column 
+     */
+    
+    public void createHit(int instrument, int rhythmValue, int row, int column) {
+        if (column <= length - 1) {
+            this.drumHit = new Hit(instrument, rhythmValue);
+            if (row == 0) {
+                this.drumPhrase.addBassDrumHitToList(drumHit.getHit(), column);
+            } else if (row == 1) {
+                this.drumPhrase.addSnareHitToList(drumHit.getHit(), column);
+            } else if (row == 2) {
+                this.drumPhrase.addCrashHitToList(drumHit.getHit(), column);
+            } else if (row == 3) {
+                this.drumPhrase.addHihatHitToList(drumHit.getHit(), column);
+            }
+        }    
     }
     
-    // Lisätään iskuja DrumPhraseen
-    
-    public void addHitIntoPhrase() {
-        this.drumPhrase.addHit(this.drumHit);
+    public void FinalizePhrases() {
+        this.drumPhraseList = this.drumPhrase.finalizePhraseLists();
     }
-    
-   
-    
 }

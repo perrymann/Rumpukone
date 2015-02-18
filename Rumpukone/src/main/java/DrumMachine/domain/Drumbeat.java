@@ -12,14 +12,14 @@ import jm.util.Play;
  * Part-olion.
  */
 
-
 public class Drumbeat {
-    private String name;
+    private int tempo;
     private Part drumBeat;
     
-    public Drumbeat(String name) {
-        this.name = name;
-        this.drumBeat = new Part(this.name, 0, 9);
+    public Drumbeat(int tempo) {
+        this.tempo = tempo;
+        this.drumBeat = new Part(0, 9);
+        setTempoForDrumbeat(tempo);
     }
     
     /**
@@ -28,7 +28,9 @@ public class Drumbeat {
      */
     
     public void addDrumPhrase(Phrase phrase) {
-        drumBeat.add(phrase);
+        this.drumBeat.addPhrase(phrase);
+        System.out.println(drumBeat.size());
+      
     }
     
     /**
@@ -51,9 +53,6 @@ public class Drumbeat {
     
     public Part getBeat() {
         return drumBeat;
-    }
-    public String getName() {
-        return name;
     }
     
     /**
