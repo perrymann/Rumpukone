@@ -16,7 +16,7 @@ public class HitTest {
     
     @Before
     public void setUp() {
-        hit = new Hit(4, 4);
+        hit = new Hit(3, 4);
     }
     
     @Test
@@ -43,10 +43,10 @@ public class HitTest {
     @Test
     public void getInstrumentPalauttaaOikeanArvon(){
         for (int z = 0; z < 5; z++) {
-        if (z == 1) assertEquals(35, this.hit.getInstrument(z));
-        else if (z == 2) assertEquals(36, this.hit.getInstrument(z));
-        else if (z == 3) assertEquals(38, this.hit.getInstrument(z));
-        else if (z == 4) assertEquals(42, this.hit.getInstrument(z));
+        if (z == 0) assertEquals(35, this.hit.getInstrument(z));
+        else if (z == 1) assertEquals(36, this.hit.getInstrument(z));
+        else if (z == 2) assertEquals(38, this.hit.getInstrument(z));
+        else if (z == 3) assertEquals(42, this.hit.getInstrument(z));
         else assertEquals(-2147483648, this.hit.getInstrument(z));
         }
     }    

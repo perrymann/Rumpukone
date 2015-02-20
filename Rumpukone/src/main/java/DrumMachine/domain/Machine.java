@@ -135,7 +135,6 @@ public class Machine {
                 this.drumPhrase.addHihatHitToList(drumHit.getHit(), j);
             }
         }
-       
     }
     
     /**
@@ -160,6 +159,10 @@ public class Machine {
             }
         }    
     }
+    
+    /**
+     *  
+     */
     
     public void FinalizePhrases() {
         this.drumPhraseList = this.drumPhrase.finalizePhraseLists();
