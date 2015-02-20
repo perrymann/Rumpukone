@@ -150,8 +150,6 @@ public class UI implements Runnable {
         
         
         return panel;
-        
-        // clear checkboxes...
     }
 
 }

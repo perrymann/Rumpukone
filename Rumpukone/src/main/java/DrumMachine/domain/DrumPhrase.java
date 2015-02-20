@@ -71,6 +71,14 @@ public class DrumPhrase {
         return phraseList;
         
     }
+    
+    public int getLength() {
+        return this.bassDrum.length;
+    }
+    
+    public Note [] getNoteArray() {
+        return this.bassDrum;
+    }
 
 }    
     

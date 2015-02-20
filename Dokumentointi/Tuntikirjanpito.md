@@ -17,3 +17,7 @@
 *7.2.2015:* 2 h, Käyttöliittymän tekoa
 
 *15.2.2015:* 2 h, Käyttöliittymän tekoa, Javadocs
+
+*17.2.2015:* 2 h, Käyttöliittymän tekoa, sovelluslogiikan muokkausta
+
+*19.2.2015:* 3 h, Testies tekoa, sekvenssikaavioiden tekoa, Javavadocs

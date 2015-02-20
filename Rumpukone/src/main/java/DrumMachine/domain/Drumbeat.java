@@ -29,8 +29,6 @@ public class Drumbeat {
     
     public void addDrumPhrase(Phrase phrase) {
         this.drumBeat.addPhrase(phrase);
-        System.out.println(drumBeat.size());
-      
     }
     
     /**
@@ -53,6 +51,10 @@ public class Drumbeat {
     
     public Part getBeat() {
         return drumBeat;
+    }
+    
+    public int getTempo() {
+        return tempo;
     }
     
     /**

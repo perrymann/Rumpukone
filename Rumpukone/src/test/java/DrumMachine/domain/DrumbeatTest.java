@@ -23,19 +23,14 @@ public class DrumbeatTest {
     
     @Before
     public void setUp() {
-        drumbeat = new Drumbeat("Bussipysäkillä");
+        drumbeat = new Drumbeat(120);
     }
     
     @Test
-    public void konstruktoriAsettaaNimenOikein() {
-        assertEquals("Bussipysäkillä", this.drumbeat.getName());
+    public void konstruktoriAsettaaTemponOikein() {
+        assertEquals(120, this.drumbeat.getTempo());
     }
     
-    @Test
-    public void konstruktoriAsettaaPhrasenOikein() {
-        // odottaa parempia aikoja...
-    }
-
     @Test
     public void addDrumPhraseLisaaFraasin() {
         Phrase x = new Phrase();

@@ -15,9 +15,6 @@ public class ButtonListener implements ActionListener{
     private JTextField loopField;
     private JTextField tempoField;
    
-    
-    // välivaihe!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-    
     public ButtonListener(Machine machine, JTextField hitFieldLength, JButton newBeat, 
             JButton submitBeat, JButton test, JTextField loopField, JTextField tempoField) {
         this.machine = machine;
@@ -32,22 +29,27 @@ public class ButtonListener implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource().equals(newBeat)) {
-            int tempo = Integer.parseInt(tempoField.getText());
-            machine.createDrumbeat(tempo);
-            int hits = Integer.parseInt(hitFieldLength.getText());
-            machine.FormatDrumPhrase(hits);
+        try {
+            if (ae.getSource().equals(newBeat)) {
+                int tempo = Integer.parseInt(tempoField.getText());
+                machine.createDrumbeat(tempo);
+                int hits = Integer.parseInt(hitFieldLength.getText());
+                machine.createDrumPhrase(hits);
+                machine.formatDrumPhrase();
+
+            }
+            if (ae.getSource().equals(this.submitBeat)) {
+                machine.FinalizePhrases();
+                machine.addDrumPhrasesIntoDrumbeat();
+                int loop = Integer.parseInt(loopField.getText());
+                machine.defineLooping(loop);
+            }
+            if (ae.getSource().equals(test)) {
+                machine.testDrumBeat();
+            }
+        } catch (Exception e) {
 
         }
-        if (ae.getSource().equals(this.submitBeat)) {
-            machine.FinalizePhrases();
-            machine.addDrumPhrasesIntoDrumbeat();
-            int loop = Integer.parseInt(loopField.getText());
-            machine.defineLooping(loop);
-        }
-        if (ae.getSource().equals(test)) {
-            machine.testDrumBeat();
-        }
-                
+
     }
 }

@@ -61,20 +61,6 @@ public class Song {
     }
     
     /**
-     * Metodi palauttaa merkkijonona ArrayList-muuttujan sisältämät Drumbeat-oliot.
-     * @return String
-     */
-    
-    public String getDrumbeatList() {
-        String beats = "";
-        int tmp = 1;
-        for (Drumbeat x : drumbeatList) {
-            beats += tmp + ") " + x.getName() + "\n";
-        }
-        return beats;
-    }
-    
-    /**
      * Metodi hakee Drumbeat-olioita ArrayList-muuttujasta indeksinumeron perusteella. 
      * @param index
      * @return Drumbeat

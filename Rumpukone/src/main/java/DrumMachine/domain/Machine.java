@@ -68,7 +68,7 @@ public class Machine {
      * @param tempo asettaa tempon
      */
     
-    public void createDrumbeat(int tempo) { //String nimi
+    public void createDrumbeat(int tempo) { 
         this.drumBeat = new Drumbeat(tempo);
     }
     
@@ -108,20 +108,24 @@ public class Machine {
      
     public void testDrumBeat() {
         this.drumBeat.testDrumbeat();
-        
     }
     
-    /////////////////////////////////////////////////////////////////////////
     /**
-     * Metodi createDrumPhrase() luo uuden drumPhrase-luokan ilmentymän ja alustaa kaikki iskut tauoiksi.
-     * 
-     * @param x määrittää, kuinka monta iskua ilmentymään mahtuu.
+     * Metodi createDrumPhrase() luo uuden drumPhrase-luokan ilmentymän. 
+     * @param length määrittää fraasin tahtilajin.
      */
     
-    public void FormatDrumPhrase(int x) {
-        this.length = x;
-        System.out.println(length);
+    public void createDrumPhrase(int length) {
+        this.length = length;
         this.drumPhrase = new DrumPhrase(length);
+     
+    }
+   
+    /**
+     * Metodi formatDrumPhrase() alustaa kaikkien fraasien iskut tauoiksi.
+     */
+    
+    public void formatDrumPhrase() {
         this.drumHit = new Hit(-1, 8);
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < length; j++) {

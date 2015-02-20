@@ -33,7 +33,7 @@ public class DrumPhraseTest {
     
     @Before
     public void setUp() {
-        drumPhrase = new DrumPhrase();
+        drumPhrase = new DrumPhrase(8);
         
     }
     
@@ -42,15 +42,15 @@ public class DrumPhraseTest {
     }
     
     @Test
-    public void konstruktoriAsettaaPhrasenAloitusAjanOikein() {
-        assertEquals(0.0, this.drumPhrase.getPhrase().getStartTime(), 0);
+    public void konstruktoriAsettaaPhrasenPituudenAOikein() {
+        assertEquals(8, this.drumPhrase.getLength());
     }
     
     @Test
-    public void addHitLisaaIskun() {
-        Hit hit = new Hit(4, 4);
-        this.drumPhrase.addHit(hit);
-        assertEquals(1, this.drumPhrase.getPhrase().getSize());
+    public void addHitLisaaIskun1() {
+        Note hit = new Note(36, 4);
+        this.drumPhrase.addBassDrumHitToList(hit, 2);
+        assertEquals(hit, this.drumPhrase.getNoteArray()[2]);
     }
         
    
