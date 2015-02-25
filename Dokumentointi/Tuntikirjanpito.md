@@ -21,3 +21,5 @@
 *17.2.2015:* 2 h, Käyttöliittymän tekoa, sovelluslogiikan muokkausta
 
 *19.2.2015:* 3 h, Testien tekoa, sekvenssikaavioiden tekoa, Javavadocs
+
+*24.2.2015:* 2 h, koodikatselmointi

@@ -1,6 +1,8 @@
 
 package DrumMachine.domain;
 
+import DrumMachine.ui.UI;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import jm.music.data.*;
 
@@ -18,6 +20,7 @@ public class Machine {
     private Song song;
     private final ReaderPlayer readerPlayer = new ReaderPlayer();
     private ArrayList<Phrase> drumPhraseList;
+    private UI ui;
  
 
     public Machine() {
@@ -29,7 +32,7 @@ public class Machine {
      */
     
     public void writeFile(String name) {
-       readerPlayer.writeToFile(getSong(),name);
+       readerPlayer.writeToMidiFile(getSong(),name);
     }
     
     /**
@@ -37,7 +40,7 @@ public class Machine {
      * @param name 
      */
     
-    public void playSong(String name) {
+    public void playSong(String name) throws FileNotFoundException {
         readerPlayer.playSavedFile(name);
     }
     
@@ -46,8 +49,8 @@ public class Machine {
      * @param nimi
     */
     
-    public void createSong(String nimi) {
-        this.song = new Song(nimi);
+    public void createSong() {
+        this.song = new Song("testi");
     }
     
     public Score getSong() {
@@ -60,6 +63,7 @@ public class Machine {
     
     public void playSong() {
         this.song.play();
+        System.out.println("soitetaan");
     }
     
     /**
@@ -68,8 +72,9 @@ public class Machine {
      * @param tempo asettaa tempon
      */
     
-    public void createDrumbeat(int tempo) { 
+    public void createDrumbeat(int tempo) {
         this.drumBeat = new Drumbeat(tempo);
+        
     }
     
     /**
@@ -98,8 +103,12 @@ public class Machine {
      * 
      */
     
-     public void addDrumbeatIntoSong() {
+    public void addDrumbeatIntoList() {
         this.song.addDrumbeat(drumBeat);
+    }
+     
+    public void finalizeSong() {
+        this.song.finalizeSong();
     }
     
     /**
@@ -116,27 +125,29 @@ public class Machine {
      */
     
     public void createDrumPhrase(int length) {
+        System.out.println(length);
         this.length = length;
         this.drumPhrase = new DrumPhrase(length);
-     
     }
-   
+    
+    public Drumbeat getDrumbeat() {
+        return this.drumBeat;
+    }
+       
     /**
      * Metodi formatDrumPhrase() alustaa kaikkien fraasien iskut tauoiksi.
      */
-    
-    public void formatDrumPhrase() {
+      public void formatDrumPhrase() {
         this.drumHit = new Hit(-1, 8);
-        for(int i = 0; i < 4; i++) {
-            for(int j = 0; j < length; j++) {
-                this.drumPhrase.addBassDrumHitToList(drumHit.getHit(), j);
-                this.drumPhrase.addSnareHitToList(drumHit.getHit(), j);
-                this.drumPhrase.addCrashHitToList(drumHit.getHit(), j);
-                this.drumPhrase.addHihatHitToList(drumHit.getHit(), j);
-            }
+        for (int j = 0; j < length; j++) {
+            this.drumPhrase.addBassDrumHitToList(drumHit.getHit(), j);
+            this.drumPhrase.addSnareHitToList(drumHit.getHit(), j);
+            this.drumPhrase.addCrashHitToList(drumHit.getHit(), j);
+            this.drumPhrase.addHihatHitToList(drumHit.getHit(), j);
+            this.drumPhrase.addGhostHitToList(drumHit.getHit(), j);
         }
     }
-    
+
     /**
      * Metodi createHit(int instrument, int rhythmValue) luo uuden Hit-luokan ilemntymän.
      * @param instrument
@@ -156,7 +167,9 @@ public class Machine {
                 this.drumPhrase.addCrashHitToList(drumHit.getHit(), column);
             } else if (row == 3) {
                 this.drumPhrase.addHihatHitToList(drumHit.getHit(), column);
-            }
+            } else if (row == 4) {
+                this.drumPhrase.addGhostHitToList(drumHit.getHit(), column);
+            }    
         }    
     }
     

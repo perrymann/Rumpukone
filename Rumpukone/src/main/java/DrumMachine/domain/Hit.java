@@ -14,7 +14,7 @@ public final class Hit {
     private Note hit;
     
     public Hit(int instrument, int rhythmValue) {
-        this.hit = new Note(getInstrument(instrument), getRhythmValue(rhythmValue), dynamize());
+        this.hit = new Note(getInstrument(instrument), getRhythmValue(rhythmValue), getDynamics(instrument));
         
     }
     /**
@@ -29,9 +29,9 @@ public final class Hit {
             instrument = 35; //Bassdrum
         }
         else if (instrument == 1) {
-            instrument = 36; //toinen Bass drum
+            instrument = 46; // open hi-hat
         }
-        else if (instrument == 2) { // snare
+        else if (instrument == 2 || instrument == 4) { // snaret
             instrument = 38;
         }
         else if (instrument == 3) { // hi-hat 
@@ -74,11 +74,16 @@ public final class Hit {
     
     /**
      * Metodi palauttaa Note-tyyppisen oliomuuttujan voimakkuuden arvon. 
+     * @param instrument
      * @return Note-tyyppisen muuttujan voimakkuus kokonaislukuna.
      */
     
-    public int getDynamics() {
-        return this.hit.getDynamic();
+    public int getDynamics(int instrument) {
+        if(instrument == 4) {
+            return 40;
+        } else {
+            return dynamize();
+        }
     }
     
     public String toString () {

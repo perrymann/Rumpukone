@@ -15,10 +15,12 @@ public class DrumPhrase {
     private Note [] snare;
     private Note [] crash;
     private Note [] hihat;
+    private Note [] ghost;
     private Phrase bd = new Phrase(0.0);
     private Phrase sn = new Phrase(0.0);
     private Phrase cr = new Phrase(0.0);
     private Phrase hh = new Phrase(0.0);
+    private Phrase gh = new Phrase(0.0);
     private ArrayList<Phrase> phraseList = new ArrayList<>();
     
     public DrumPhrase(int length) {
@@ -26,6 +28,7 @@ public class DrumPhrase {
         this.crash = new Note[length];
         this.snare = new Note[length];
         this.hihat = new Note[length];
+        this.ghost = new Note[length];
     }
     
     /**
@@ -51,6 +54,10 @@ public class DrumPhrase {
         this.hihat [position] = hit;
     }
     
+    public void addGhostHitToList(Note hit, int position) {
+        this.ghost [position] = hit;
+    }
+    
     /**
      * Metodi lisää Note-arrayt DrumPhrase-luokan luomaan Phrase-olioihin ja lisää ne ArrayList-muuttujaan.  
      * 
@@ -62,11 +69,13 @@ public class DrumPhrase {
         sn.addNoteList(snare);
         cr.addNoteList(crash);
         hh.addNoteList(hihat);
+        gh.addNoteList(ghost);
         
         phraseList.add(bd);
         phraseList.add(sn);
         phraseList.add(cr);
         phraseList.add(hh);
+        phraseList.add(gh);
        
         return phraseList;
         

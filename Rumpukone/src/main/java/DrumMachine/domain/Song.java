@@ -3,6 +3,7 @@ package DrumMachine.domain;
 
 import java.util.ArrayList;
 import jm.music.data.*;
+import jm.music.tools.Mod;
 import jm.util.Play;
 
 /**
@@ -18,9 +19,11 @@ public class Song {
     private String name;
     private ArrayList<Drumbeat> drumbeatList = new ArrayList<>();
     
+    
     public Song(String name) {
         this.name = name;
         this.song = new Score(this.name);
+        System.out.println("testi");
     }
     
     public Score getSong() {
@@ -33,7 +36,9 @@ public class Song {
      */
     
     public void addDrumbeat(Drumbeat drumbeat) {
-        this.drumbeatList.add(drumbeat);
+        this.drumbeatList.add(drumbeat);                    //this.song.add(drumbeat.getbeat());
+        System.out.println("lisätty listaan");
+        
     }
     
     /**
@@ -43,31 +48,19 @@ public class Song {
      */
     
     public void finalizeSong() {
-        Part [] l = new Part [drumbeatList.size()];
-        int temp = 0; 
-        for (Drumbeat x : drumbeatList) {
-            l [temp] = x.getBeat();
-            temp++;
+        Part tmp = drumbeatList.get(0).getBeat();
+        for (int i = 1; i < drumbeatList.size(); i++) {
+            Mod.append(tmp, drumbeatList.get(i).getBeat());
         }
-        this.song.addPartList(l);
+        this.song.add(tmp);
     }
     
     /**
-     * Metodi toistaa Score-olion sisältämät mididatan.
+     * Metodi toistaa Score-olion sisältämän mididatan.
      */
     
     public void play() {
         Play.midi(this.song);
     }
     
-    /**
-     * Metodi hakee Drumbeat-olioita ArrayList-muuttujasta indeksinumeron perusteella. 
-     * @param index
-     * @return Drumbeat
-     */
-    
-    public Drumbeat getBeatFromList(int index) {
-        return drumbeatList.get(index);
-        
-    }
 }
