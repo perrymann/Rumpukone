@@ -1,13 +1,7 @@
 package DrumMachine.domain;
 
-
-import DrumMachine.domain.Hit;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class HitTest {
@@ -29,7 +23,7 @@ public class HitTest {
     }
     
     @Test 
-    public void konstruktotiAsettaaDynamiikanOikein() {
+    public void konstruktoriAsettaaDynamiikanOikein() {
         int x = this.hit.dynamize();
         assertEquals(true, this.hit.getDynamics() >= 80 && this.hit.getDynamics() <= 125);
     }
@@ -62,6 +56,4 @@ public class HitTest {
             }
         }
     }
-    
-    
 }

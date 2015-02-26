@@ -80,7 +80,7 @@ public final class Hit {
     
     public int getDynamics(int instrument) {
         if(instrument == 4) {
-            return 40;
+            return 30;
         } else {
             return dynamize();
         }
