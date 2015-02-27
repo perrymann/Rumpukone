@@ -73,7 +73,7 @@ public class ButtonListener implements ActionListener {
         }
 
         try {
-            if (ae.getSource().equals(submitBeat)) {
+            if (ae.getSource().equals(submitBeat) && songOk) {
                 if (machine.getDrumbeat() != null && !loopField.getText().isEmpty()) {
                     machine.finalizePhrases();
                     machine.addDrumPhrasesIntoDrumbeat();
