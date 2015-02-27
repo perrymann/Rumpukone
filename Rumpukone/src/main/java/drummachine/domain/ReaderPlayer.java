@@ -35,9 +35,14 @@ public class ReaderPlayer {
      * @param name on tallennettava tiedoston nimi 
      */
     
+    /**
+     * Metodi tallentaa Score-olion mid-tiedostona.
+     * @param score on Score-olio
+     * @param name on tallennettava tiedoston nimi
+     */
     public void writeToMidiFile(Score score, String name) {
         Write.midi(score, name + ".mid");
-        System.out.println("jes!");
-    }    
-    
+        
+    }
+
 }

@@ -8,6 +8,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 
+/**
+ * @author pnikande
+ * 
+ * Luokassa luodaan ButtonListener-kuuntelijaolio, joka kuuntelee käyttöliittymän nappeja ja tekstikenttiä.
+ */
 public class ButtonListener implements ActionListener {
 
     private Machine machine;
@@ -20,7 +25,7 @@ public class ButtonListener implements ActionListener {
     private JTextField tempoField;
     private JButton addToSong;
     private boolean beatOk = false;
-    private boolean songOk = false;
+    private boolean songOk;
     private JButton listenSong;
     private JTextField name;
     private JButton save;
@@ -40,6 +45,7 @@ public class ButtonListener implements ActionListener {
         this.newSong = newSong;
         this.addToSong = addToSong;
         this.listenSong = listenSong;
+        this.songOk = false;
     }
 
     public ButtonListener(Machine machine, JTextField name, JButton save, JTextField songName, JButton play) {
@@ -48,6 +54,7 @@ public class ButtonListener implements ActionListener {
         this.save = save;
         this.songName = songName;
         this.play = play;
+       
     }
 
     @Override
@@ -121,10 +128,10 @@ public class ButtonListener implements ActionListener {
                         JOptionPane.PLAIN_MESSAGE);
             }
         }
-        if (ae.getSource().equals(save)) {
-            if (!name.getText().isEmpty()) {
+        if (ae.getSource().equals(save) && !name.getText().isEmpty() && songOk) {
+            try {
                 machine.writeFile(name.getText());
-            } else {
+            } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(new JFrame(),
                         "Ei tallennettavaa kappaletta!",
                         "Virhe",

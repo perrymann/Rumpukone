@@ -41,7 +41,6 @@ public class DrumPhrase {
     
     public void addBassDrumHitToList(Note hit, int position) {
         this.bassDrum [position] = hit;
-        System.out.println("toimiiko");
     }
     
     /**
@@ -62,7 +61,7 @@ public class DrumPhrase {
      * @param position määrittää arrayn indeksin, johon Note-olio lisätään.
      */
     
-    public void addCrashHitToList(Note hit, int position) {
+    public void addOpenHatHitToList(Note hit, int position) {
         this.crash [position] = hit;
     }
     
@@ -91,7 +90,7 @@ public class DrumPhrase {
     
     /**
      * Metodi lisää Note-arrayt DrumPhrase-luokan luomaan Phrase-olioihin ja lisää ne ArrayList-muuttujaan.  
-     * 
+     * @see drummachine.domain.DrumPhrase#quantize()
      * @return ArrayList<> sisältää eri rummuille varatut Phrase-oliot.
      */
     
@@ -126,6 +125,7 @@ public class DrumPhrase {
      * Metodi kvantisoi rummun iskut fraasissa.
      * 
      */
+    
     public void quantize() {
         for (Phrase x : phraseList) {
             Mod.quantise(x, 0.0);

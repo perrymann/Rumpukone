@@ -71,6 +71,7 @@ public final class Hit {
     /**
      * Metodi palauttaa Note-tyyppisen oliomuuttujan voimakkuuden arvon. Rumpu GhostSnare saa vakioarvoksi 30, muiden voimakkuus 
      * arvotaan dynamize-metodissa.
+     * @see drummachine.domain.Hit#dynamize()
      * @param instrument
      * @return Note-tyyppisen muuttujan voimakkuus kokonaislukuna.
      */

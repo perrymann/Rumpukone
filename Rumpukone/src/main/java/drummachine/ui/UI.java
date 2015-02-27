@@ -21,6 +21,9 @@ import javax.swing.WindowConstants;
 /**
  *
  * @author pnikande
+ * 
+ * Graafinen käyttöliittymä-luokka, jossa luodaan käyttöliittymän komponentit.
+ * 
  */
 public class UI implements Runnable {
 
@@ -53,6 +56,13 @@ public class UI implements Runnable {
 
     }
 
+    /**
+     * Metodi jakaa ruudun kahteen osaan.
+     * 
+     * @param container
+     * @return JPanel
+     */
+    
     private JPanel splitScreen(Container container) {
         JPanel panel = new JPanel(new GridLayout(2, 1));
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -62,6 +72,11 @@ public class UI implements Runnable {
 
         return panel;
     }
+    
+    /**
+     * Metodi luo ruudun alaosan.
+     * @return JPanel
+     */
 
     public JPanel drumGrids() {
         JPanel panel = new JPanel();
@@ -89,7 +104,12 @@ public class UI implements Runnable {
 
         return panel;
     }
-
+    
+    /**
+     * Metodi luo rumpujen iskujen kentän.
+     * @return Jpanel
+     */
+    
     private JPanel createGrids() {
         GridLayout grid = new GridLayout(5, gridLength);
         grid.setVgap(1);
@@ -106,7 +126,12 @@ public class UI implements Runnable {
         }
         return panel;
     }
-
+    
+    /**
+     * Metodi jakaa ruudun yläosan kahteen osaan.
+     * @return JPanel
+     */
+    
     private JPanel buttonGrid1() {
         JPanel panel = new JPanel(new GridLayout(1, 2));
         panel.add(operatorButtons1());
@@ -115,6 +140,11 @@ public class UI implements Runnable {
         return panel;
     }
 
+    /**
+     * Metodi määrittelee ruudun yläosan vasemmanpuoleisen osan komponentit ja määrittää niille kuuntelijaolion.
+     * @return JPanel
+     */
+    
     private JPanel operatorButtons1() {
         JPanel panel = new JPanel(new GridLayout(5, 3));
         panel.setBorder(BorderFactory.createTitledBorder("Kompin alustus"));
@@ -159,7 +189,12 @@ public class UI implements Runnable {
 
         return panel;
     }
-
+    
+    /**
+     * Metodi määrittelee ruudun yläosan oikeanpuoleisen osan komponentit ja määrittää niille kuuntelijaolion.
+     * @return JPanel
+     */
+    
     private JPanel operatorButtons2() {
         JPanel panel = new JPanel(new GridLayout(5, 3));
         panel.setBorder(BorderFactory.createTitledBorder("Tiedostojen hallinta"));

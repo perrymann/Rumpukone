@@ -46,7 +46,9 @@ public class Drumbeat {
      */
     
     public void loopDrumbeat(int loops) {
-        Mod.repeat(drumBeat, loops);
+        if (loops > 0) {
+            Mod.repeat(drumBeat, loops);
+        } 
     }
     
     public Part getBeat() {

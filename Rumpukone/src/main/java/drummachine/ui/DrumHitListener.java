@@ -4,6 +4,12 @@ import drummachine.domain.Machine;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+/**
+ * @author pnikande
+ * 
+ * Luokassa luodaan DrumHitListener-olio, joka kuuntelee käyttöliittymän rumpuiskukenttien Checkbox-komponentteja.
+ */
+
 public class DrumHitListener implements ItemListener {
 
     private Machine machine;
