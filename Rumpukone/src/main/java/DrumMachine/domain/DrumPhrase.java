@@ -1,5 +1,5 @@
 
-package drummachine.domain;
+package DrumMachine.domain;
 
 import java.util.ArrayList;
 import jm.music.data.*;

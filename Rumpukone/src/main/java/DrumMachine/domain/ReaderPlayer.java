@@ -1,5 +1,5 @@
 
-package drummachine.domain;
+package DrumMachine.domain;
 
 import java.io.FileNotFoundException;
 import jm.music.data.*;

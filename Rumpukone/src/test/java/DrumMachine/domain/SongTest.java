@@ -5,8 +5,6 @@
  */
 package DrumMachine.domain;
 
-import drummachine.domain.Drumbeat;
-import drummachine.domain.Song;
 import jm.music.data.Score;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -1,7 +1,7 @@
 
-package drummachine.ui;
+package DrumMachine.ui;
 
-import drummachine.domain.Machine;
+import DrumMachine.domain.Machine;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;

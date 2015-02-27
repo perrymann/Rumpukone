@@ -6,7 +6,6 @@ package DrumMachine.domain;
  * and open the template in the editor.
  */
 
-import drummachine.domain.DrumPhrase;
 import jm.music.data.*;
 import org.junit.After;
 import org.junit.AfterClass;

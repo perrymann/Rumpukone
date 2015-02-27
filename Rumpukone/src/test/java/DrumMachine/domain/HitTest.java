@@ -1,6 +1,5 @@
 package DrumMachine.domain;
 
-import drummachine.domain.Hit;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;

@@ -79,7 +79,7 @@
                     <configuration>
                         <transformers>
                             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                <mainClass>drummachine.main.Main</mainClass>
+                                <mainClass>DrumMachine.main.Main</mainClass>
                             </transformer>
                         </transformers>
                     </configuration>

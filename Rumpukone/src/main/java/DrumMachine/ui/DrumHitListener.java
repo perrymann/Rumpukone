@@ -1,6 +1,6 @@
-package drummachine.ui;
+package DrumMachine.ui;
 
-import drummachine.domain.Machine;
+import DrumMachine.domain.Machine;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 

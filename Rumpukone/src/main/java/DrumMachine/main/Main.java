@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-package drummachine.main;
+package DrumMachine.main;
 
-import drummachine.domain.Machine;
-import drummachine.ui.UI;
+import DrumMachine.domain.Machine;
+import DrumMachine.ui.UI;
 import javax.swing.SwingUtilities;
 
 /**

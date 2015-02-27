@@ -1,5 +1,5 @@
 
-package drummachine.domain;
+package DrumMachine.domain;
 
 import jm.music.data.*;
 import jm.music.tools.*;
