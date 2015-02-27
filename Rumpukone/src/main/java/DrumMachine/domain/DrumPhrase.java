@@ -90,7 +90,7 @@ public class DrumPhrase {
     
     /**
      * Metodi lisää Note-arrayt DrumPhrase-luokan luomaan Phrase-olioihin ja lisää ne ArrayList-muuttujaan.  
-     * @see drummachine.domain.DrumPhrase#quantize()
+     * @see DrumMachine.domain.DrumPhrase#quantize()
      * @return ArrayList<> sisältää eri rummuille varatut Phrase-oliot.
      */
     

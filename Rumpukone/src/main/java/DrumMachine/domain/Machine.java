@@ -26,7 +26,7 @@ public class Machine {
      * tallentaa Score-olion mid-tiedostona.
      *
      * @param name on nimi, jolla tiedosto tallentuu
-     * @see drummachine.domain.ReaderPlayer#writeToMidiFile(jm.music.data.Score, java.lang.String)
+     * @see DrumMachine.domain.ReaderPlayer#writeToMidiFile(jm.music.data.Score, java.lang.String)
      */
     public void writeFile(String name) {
         readerPlayer.writeToMidiFile(getSong(), name);
@@ -38,7 +38,7 @@ public class Machine {
      *
      * @param name on toistettvan tiedoston nimi
      * @throws java.io.FileNotFoundException
-     * @see drummachine.domain.ReaderPlayer#playSavedFile(java.lang.String) 
+     * @see DrumMachine.domain.ReaderPlayer#playSavedFile(java.lang.String) 
      */
     
     public void playSong(String name) throws FileNotFoundException {
@@ -54,7 +54,7 @@ public class Machine {
     }
     
     /**
-     * @see drummachine.domain.Song#getSong()
+     * @see DrumMachine.domain.Song#getSong()
      * @return Score
      */
     
@@ -65,7 +65,7 @@ public class Machine {
     /**
      * Metodi playSong() kutsuu Song-luokan metodia, joka toistaa
      * Score-muuttujan.
-     * @see drummachine.domain.Song#play()
+     * @see DrumMachine.domain.Song#play()
      */
     
     public void playSong() {
@@ -86,7 +86,7 @@ public class Machine {
      * Metodi defineLooping(int loop) kutsuu Drumbeat-luokan metodia, joka
      * määrittää kuinka monta kertaa rumpukomppi loopataan.
      *
-     * @see drummachine.domain.Drumbeat#loopDrumbeat(int)
+     * @see DrumMachine.domain.Drumbeat#loopDrumbeat(int)
      * @param loop määrittää toistohen määrän
      */
     public void defineLooping(int loop) {
@@ -96,7 +96,7 @@ public class Machine {
     /**
      * Metodi addDrumPhraseIntoDrumbeat() kutsuu Drumbeat-luokan metodia, joka
      * lisää fraasin rumpukomppiin.
-     * @see drummachine.domain.Drumbeat#addDrumPhrase(Phrase)
+     * @see DrumMachine.domain.Drumbeat#addDrumPhrase(Phrase)
      */
     
     public void addDrumPhrasesIntoDrumbeat() {
@@ -108,7 +108,7 @@ public class Machine {
     /**
      * Metodi addDrumbeatIntoSong() kutsuu Song-luokan metodia, joka lisää
      * rumpukompin kappaleeseen.
-     * @see drummachine.domain.Song#addDrumbeat(drummachine.domain.Drumbeat) 
+     * @see DrumMachine.domain.Song#addDrumbeat(DrumMachine.domain.Drumbeat) 
      */
     
     public void addDrumbeatIntoList() {
@@ -118,8 +118,8 @@ public class Machine {
     /**
      * Metodi finalizeSong() kutsuu kahta Song-luokan metodia, jotka yhdistävät
      * yksittäiset rumpukompit ja liittävät ne kappaleeseen.
-     * @see drummachine.domain.Song#finalizeSong()
-     * @see drummachine.domain.Song#addPartToSong()
+     * @see DrumMachine.domain.Song#finalizeSong()
+     * @see DrumMachine.domain.Song#addPartToSong()
      */
     
     public void finalizeSong() {
@@ -130,7 +130,7 @@ public class Machine {
     /**
      * Metodi testDrumBeat() kutsuu Drumbeat-luokan metodia, joka toistaa
      * rumpukompin.
-     * @see drummachine.domain.Drumbeat#testDrumbeat()
+     * @see DrumMachine.domain.Drumbeat#testDrumbeat()
      */
     
     public void testDrumBeat() {
@@ -154,11 +154,11 @@ public class Machine {
 
     /**
      * Metodi formatDrumPhrase() alustaa kaikkien fraasien iskut tauoiksi.
-     * @see drummachine.domain.DrumPhrase#addBassDrumHitToList(Note, int)
-     * @see drummachine.domain.DrumPhrase#addSnareHitToList(Note, int)
-     * @see drummachine.domain.DrumPhrase#addOpenHatHitToList(Note, int)
-     * @see drummachine.domain.DrumPhrase#addHihatHitToList(Note, int)
-     * @see drummachine.domain.DrumPhrase#addGhostHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addBassDrumHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addSnareHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addOpenHatHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addHihatHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addGhostHitToList(Note, int)
      */
     
     public void formatDrumPhrases() {
@@ -180,11 +180,11 @@ public class Machine {
      * @param rhythmValue määrittää aika-arvon
      * @param row määrittää minkä instrumentin listaan isku laitetaan
      * @param column määrittää iskun paikan kompissa
-     * @see drummachine.domain.DrumPhrase#addBassDrumHitToList(Note, int)
-     * @see drummachine.domain.DrumPhrase#addSnareHitToList(Note, int)
-     * @see drummachine.domain.DrumPhrase#addOpenHatHitToList(Note, int)
-     * @see drummachine.domain.DrumPhrase#addHihatHitToList(Note, int)
-     * @see drummachine.domain.DrumPhrase#addGhostHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addBassDrumHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addSnareHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addOpenHatHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addHihatHitToList(Note, int)
+     * @see DrumMachine.domain.DrumPhrase#addGhostHitToList(Note, int)
      */
     
     public void createHit(int instrument, int rhythmValue, int row, int column) {
@@ -207,7 +207,7 @@ public class Machine {
     /**
      * Metodi kutsuu DrumPhrase-luokan metodia finalizePhraseLists(), ja liittää
      * palautusarvon oliomuuttujaan drumPhraseList;
-     * @see drummachine.domain.DrumPhrase#finalizePhraseLists()
+     * @see DrumMachine.domain.DrumPhrase#finalizePhraseLists()
      */
     public void finalizePhrases() {
         this.drumPhraseList = this.drumPhrase.finalizePhraseLists();
