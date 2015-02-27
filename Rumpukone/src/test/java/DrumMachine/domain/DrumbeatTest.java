@@ -1,7 +1,7 @@
 package DrumMachine.domain;
 
 
-import DrumMachine.domain.*;
+import drummachine.domain.Drumbeat;
 import jm.music.data.*;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -37,5 +37,5 @@ public class DrumbeatTest {
         this.drumbeat.addDrumPhrase(x);
         assertTrue(1 == this.drumbeat.getBeat().getSize());
     }
-   
+    
 }

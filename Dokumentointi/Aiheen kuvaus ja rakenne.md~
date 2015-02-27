@@ -18,7 +18,7 @@ Käyttäjä voi lisätä kappaleeseen useita rumpukomppeja peräkkäin. Lisäksi
 - kappaleen tallennus
 - kappaleen toisto
 
-##Ohjelman rakenne
+**Ohjelman rakenne**
 
 Ohjelman "aivoina" toimii Machine-olio, jonka kautta muut luokat ovat saavat komentoja. Machine-oliota komennetaan puolestaan käyttöliittymästä. Machine-oliossa ei ole varsinaista logiikkaa, sen tehtävä on pääasiassa ohjata käyttäjän komentoja oikeille luokille. DrumMachine.Domain-pakkauksen muiden luokkien ilmentymät ovat Machine-luokan oliomuuttujina, jolloin muut luokat saavat näitä oliomuuttujia ja niihin liittyviä muuttujia parametreinä vain Machine-luokan kautta.
 

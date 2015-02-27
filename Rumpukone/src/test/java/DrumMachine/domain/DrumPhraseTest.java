@@ -6,7 +6,7 @@ package DrumMachine.domain;
  * and open the template in the editor.
  */
 
-import DrumMachine.domain.*;
+import drummachine.domain.DrumPhrase;
 import jm.music.data.*;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -47,12 +47,10 @@ public class DrumPhraseTest {
     }
     
     @Test
-    public void addHitLisaaIskun1() {
+    public void addHitLisaaIskunOikein() {
         Note hit = new Note(36, 4);
         this.drumPhrase.addBassDrumHitToList(hit, 2);
         assertEquals(hit, this.drumPhrase.getNoteArray()[2]);
     }
-        
-   
-
+    
 }
