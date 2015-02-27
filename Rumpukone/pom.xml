@@ -85,7 +85,11 @@
                     </configuration>
                 </execution>
             </executions>
+<<<<<<< HEAD
         </plugin>
+=======
+            </plugin>
+>>>>>>> 30ccfbca64e99b832f0ce68637449ce48dc13b9d
         </plugins>
     </build>
 </project>
