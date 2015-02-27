@@ -122,6 +122,10 @@ public class DrumPhrase {
         return this.bassDrum;
     }
 
+    /**
+     * Metodi kvantisoi rummun iskut fraasissa.
+     * 
+     */
     public void quantize() {
         for (Phrase x : phraseList) {
             Mod.quantise(x, 0.0);
